@@ -70,7 +70,7 @@ static public class ContextClickSelect
             obj = PickObjectOnPos(sceneView.camera, ~0, invertedPos, currArray, null, out matIndex);
             if (obj != null)
             {
-                parentChildsDict[obj.transform] = null;
+                parentChildsDict[obj.transform] = new List<Transform>();
 
                 var currentParent = obj.transform.parent;
                 var lastParent = obj.transform;
