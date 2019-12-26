@@ -15,7 +15,7 @@ static public class ContextClickSelect
 
     static ContextClickSelect()
     {
-        if (EditorApplication.isPlaying) return;
+        SceneView.onSceneGUIDelegate -= OnSceneGUI;
         SceneView.onSceneGUIDelegate += OnSceneGUI;
         FindMethodByReflection();
     }
