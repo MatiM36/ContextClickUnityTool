@@ -4,7 +4,7 @@ A simple Unity tool to select objects from a dropdown using the secondary click,
 
 ## Getting Started
 
-Just import the package ContextClickTool v1.0 into your project and you're ready to go
+Just import the latest ContextClickTool package into your project and you're ready to go
 
 ### How to use
 
