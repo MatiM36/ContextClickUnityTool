@@ -11,7 +11,7 @@ static public class ContextClickSelect
 {
     const int MAX_OBJ_FOUND = 30;
     const string LEVEL_SEPARATOR = "          ";
-    const string PREFAB_TAG = "♦";
+    const string PREFAB_TAG = "🔲 ";
 
     static ContextClickSelect()
     {
@@ -45,7 +45,7 @@ static public class ContextClickSelect
 
     static void OpenContextMenu(Vector2 pos, SceneView sceneView)
     {
-        var invertedPos = new Vector2(pos.x, sceneView.position.height - 16 - pos.y);
+        var pickPos = new Vector2(pos.x /sceneView.position.width * sceneView.camera.pixelWidth, sceneView.camera.pixelHeight - (pos.y / sceneView.position.height * sceneView.camera.pixelHeight));
 
         GenericMenu contextMenu = new GenericMenu();
         GameObject obj = null;
@@ -67,7 +67,7 @@ static public class ContextClickSelect
                 }
             }
 
-            obj = PickObjectOnPos(sceneView.camera, ~0, invertedPos, currArray, null, out matIndex);
+            obj = PickObjectOnPos(sceneView.camera, ~0, pickPos, currArray, null, out matIndex);
             if (obj != null)
             {
                 parentChildsDict[obj.transform] = new List<Transform>();
@@ -78,7 +78,10 @@ static public class ContextClickSelect
                 while (currentParent != null)
                 {
                     if (parentChildsDict.TryGetValue(currentParent, out currentChilds))
+                    {
                         currentChilds.Add(lastParent);
+                        break;
+                    }
                     else
                         parentChildsDict.Add(currentParent, new List<Transform>() { lastParent });
 
