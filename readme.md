@@ -1,3 +1,5 @@
+This is an old repository for the tool, maybe in the future i can update this project, but for now, i recommend using: https://github.com/MatiM36/ContextClickSelectV2
+
 # Unity Context Click selection tool
 
 A simple Unity tool to select objects from a dropdown using the secondary click, like in Photoshop
